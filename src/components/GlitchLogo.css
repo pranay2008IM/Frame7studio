@@ -1,0 +1,48 @@
+@keyframes fontChange {
+  0% { font-family: 'Helvetica', sans-serif; }
+  25% { font-family: 'Courier New', monospace; }
+  50% { font-family: 'Arial Black', sans-serif; }
+  75% { font-family: 'Trebuchet MS', sans-serif; }
+  100% { font-family: 'Helvetica', sans-serif; }
+}
+
+.glitch-wrapper {
+  position: relative;
+  display: inline-block;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+}
+
+.glitch {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.glitch-wrapper:hover .glitch {
+  animation: fontChange 0.5s steps(4) infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.glitch-wrapper:hover .glitch::before {
+  color: #0ff;
+  opacity: 0.5;
+  transform: translate(1px);
+}
+
+.glitch-wrapper:hover .glitch::after {
+  color: #f0f;
+  opacity: 0.5;
+  transform: translate(-1px);
+}
